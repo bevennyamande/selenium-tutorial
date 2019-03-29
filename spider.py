@@ -3,18 +3,17 @@ from selenium import webdriver
 # create an instance of the webdrive in this case Firefox
 browser = webdriver.Firefox()
 # open the website
-browser.get('http://0.0.0.0:5000')
+url = '''https://www.zse.co.zw/index.php?option=com_content&view=article&id=135&itemid=249'''
+admin_url = '''https://www.zse.co.zw/administrator'''
+browser.get(url)
 
-# lets find the input fields
-username = browser.find_element_by_name('name')
+username = browser.find_element_by_name('username')
 password = browser.find_element_by_name('password')
 
-# fill in the input fields
 username.send_keys('admin')
 password.send_keys('admin')
 
-# lets submit the form
-# note: you can find elements by tag_name, id, name
-login_attempt = browser.find_element_by_tag_name('button')
-# submit the form
+login_attempt = browser.find_element_by_name('Submit')
 login_attempt.submit()
+
+
